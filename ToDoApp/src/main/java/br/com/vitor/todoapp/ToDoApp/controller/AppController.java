@@ -11,20 +11,20 @@ import br.com.vitor.todoapp.ToDoApp.model.User;
 @RequestMapping
 public class AppController {
 
-	@GetMapping("/home")
+	@GetMapping("home")
 	public String viewHomePage() {
 		return "index";
 	}
 	
-	@GetMapping("/register")
+	@GetMapping("register")
 	public String viewSignUpPage(Model model) {
 		model.addAttribute("user", new User());
-		return "/user/register.html";
+		return "user/register.html";
 	}
 	
-	@GetMapping("/login")
+	@GetMapping("login")
 	public String viewLoginPage() {
-		return "/user/login.html";
+		return "user/login.html";
 	}
 	
 }

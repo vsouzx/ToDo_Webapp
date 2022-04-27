@@ -41,13 +41,13 @@ public class TaskController {
 		if(tasks == null || tasks.size() == 0) {
 			model.addAttribute("username", username);
 			model.addAttribute("tasks", tasks);
-			return "/tasks/emptyTask";
+			return "tasks/emptyTask";
 		}
 		
 		model.addAttribute("username", username);
 		model.addAttribute("tasks", tasks);
 		model.addAttribute("url", url);
-		return "/tasks/home";
+		return "tasks/home";
 	}
 	
 	@GetMapping("todo")
@@ -62,13 +62,13 @@ public class TaskController {
 		if(tasks == null || tasks.size() == 0) {
 			model.addAttribute("username", username);
 			model.addAttribute("tasks", tasks);
-			return "/tasks/emptyTask";
+			return "tasks/emptyTask";
 		}
 		
 		model.addAttribute("username", username);
 		model.addAttribute("tasks", tasks);
 		model.addAttribute("url", url);
-		return "/tasks/home";
+		return "tasks/home";
 	}
 	@GetMapping("done")
 	public String showTasksDone(Model model, Principal principal) {
@@ -81,13 +81,13 @@ public class TaskController {
 		if(tasks == null || tasks.size() == 0) {
 			model.addAttribute("username", username);
 			model.addAttribute("tasks", tasks);
-			return "/tasks/emptyTask";
+			return "tasks/emptyTask";
 		}
 		
 		model.addAttribute("username", username);
 		model.addAttribute("tasks", tasks);
 		model.addAttribute("url", url);
-		return "/tasks/home";
+		return "tasks/home";
 	}
 	
 	@GetMapping("new")
@@ -97,10 +97,10 @@ public class TaskController {
 		model.addAttribute("task", new Task());
 		
 		model.addAttribute("username", username);
-		return "/tasks/new";
+		return "tasks/new";
 	}
 	
-	@PostMapping("/register_task")
+	@PostMapping("register_task")
 	public String processRegistration(Task task, Principal principal) {
 		
 		String username = principal.getName();
@@ -112,10 +112,10 @@ public class TaskController {
 		
 		taskRepository.save(task);
 		
-		return "/tasks/register_success";
+		return "tasks/register_success";
 	}
 	
-	@GetMapping("/edit/{id}")
+	@GetMapping("edit/{id}")
 	public String editTaskForm(@PathVariable("id") Long id, Model model, Principal principal)	 {
 		
 		
@@ -125,10 +125,10 @@ public class TaskController {
 		
 		String username = principal.getName();
 		model.addAttribute("username", username);
-		return "/tasks/edit";
+		return "tasks/edit";
 	}
 	
-	@PostMapping("/process_edit")
+	@PostMapping("process_edit")
 	public String process_edit(Task task, Principal principal)	 {
 		String username = principal.getName();
 		
@@ -139,7 +139,7 @@ public class TaskController {
 		return "redirect:/tasks/home";
 	}
 	
-	@GetMapping("/delete/{id}")
+	@GetMapping("delete/{id}")
 	public String process_delete(Task task)	 {
 		
 		taskRepository.deleteById(task.getId());

@@ -25,7 +25,7 @@ public class UserController {
 	@Autowired
 	private TaskRepository taskRepository;
 	
-	@PostMapping("/process_register")
+	@PostMapping("process_register")
 	public String processRegistration(User user) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		
@@ -36,20 +36,20 @@ public class UserController {
 		
 		userRepository.save(user);
 		
-		return "/user/register_success.html";
+		return "user/register_success.html";
 	}
 	
-	@GetMapping("/list_users")
+	@GetMapping("list_users")
 	public String viewUsersList(Model model, Principal principal) {
 		String username = principal.getName();
 		
 		List<User> usersList = userRepository.findAll();
 		model.addAttribute("usersList", usersList);
 		model.addAttribute("username", username);
-		return "/user/usersList";
+		return "user/usersList";
 	}
 
-	@GetMapping("/delete/{id}")
+	@GetMapping("delete/{id}")
 	public String deleteUser(User user) {
 		
 		taskRepository.deleteAllByUser(user.getId());
@@ -58,7 +58,7 @@ public class UserController {
 		return "redirect:/list_users";
 	}
 	
-	@GetMapping("/edit/{id}")
+	@GetMapping("edit/{id}")
 	public String editUserForm(@PathVariable("id") Long id, Model model, Principal principal) {
 		
 		Optional<User> user = userRepository.findById(id);
@@ -66,10 +66,10 @@ public class UserController {
 		String username = principal.getName();
 		model.addAttribute("username", username);
 		model.addAttribute("user", user);
-		return "/user/edit";
+		return "user/edit";
 	}
 	
-		@PostMapping("/edit/confirmation")
+		@PostMapping("edit/confirmation")
 		public String editUser(User user) {
 		
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();

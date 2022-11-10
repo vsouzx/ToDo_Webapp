@@ -1,7 +1,7 @@
 package br.com.vitor.todoapp.ToDoApp.model;
 
 public enum Status {
-	TO_DO ("TO DO"),
+	TODO ("TODO"),
 	DONE ("DONE");
 	
 	public String getName() {

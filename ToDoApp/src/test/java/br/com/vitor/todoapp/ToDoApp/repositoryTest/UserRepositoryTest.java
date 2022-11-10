@@ -8,9 +8,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.Rollback;
 
-import br.com.vitor.todoapp.ToDoApp.model.User;
-import br.com.vitor.todoapp.ToDoApp.repository.UserRepository;
-
+/*
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(false)
@@ -46,4 +44,4 @@ public class UserRepositoryTest {
 		
 		assertThat(user).isNotNull();
 	}
-}
+}*/

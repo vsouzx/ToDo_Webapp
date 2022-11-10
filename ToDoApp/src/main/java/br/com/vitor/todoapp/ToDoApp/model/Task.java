@@ -24,7 +24,7 @@ public class Task {
 	private String description;
 	
 	@Enumerated(EnumType.STRING)
-	private Status status = Status.TO_DO;
+	private Status status = Status.TODO;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private User user;

@@ -116,3 +116,129 @@ body {
 	transform: translate(-50%, -50%);
 	min-height: 200px;
 }
+
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+
+.sidebar {
+	position: fixed;
+	width: 70px;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.sidebar h2 {
+	text-align: center;
+	font-size: 14px;
+	text-transform: uppercase;
+	color: white;
+	padding: 6px;
+	font-weight: bolder;
+}
+
+.sidebar ul li {
+	margin: 15px 0;
+}
+
+.sidebar ul li a {
+	color: white;
+	font-size: 10px;
+	padding: 0 15px;
+	transition: all .5s;
+	text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+	color: black;
+	font-size: 10px;
+	margin-left: 10px;
+	transition: all .5s;
+	font-weight: bolder;
+}
+
+.main {
+	margin-left: 70px;
+	font-size: 10px;
+}
+
+.td-formatted-id {
+	min-width: 15px;
+	max-width: 15px;
+	overflow: hidden;
+	text-align: center;
+	transition: all ease 0.7s;
+}
+
+.td-formatted-enabled {
+	min-width: 20px;
+	max-width: 20px;
+	overflow: hidden;
+	text-align: center;
+	transition: all ease 0.7s;
+}
+
+.td-formatted-name {
+	min-width: 20px;
+	max-width: 20px;
+	overflow: hidden;
+	text-align: center;
+	transition: all ease 0.7s;
+}
+
+.td-formatted-button {
+	min-width: 40px;
+	max-width: 40px;
+	overflow: hidden;
+	text-align: center;
+	transition: all ease 0.7s;
+}
+
+.td-formatted {
+	min-width: 80px;
+	max-width: 80px;
+	overflow: hidden;
+	text-align: center;
+	transition: all ease 0.7s;
+}
+
+.td-formatted:hover {
+	min-width: 80px;
+	max-width: 80px;
+	overflow: auto;
+	white-space: initial;
+	padding: 1em;
+}
+
+#register-form{
+	min-width: 200px;
+	max-width: 450px;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	min-height: 200px;
+}
+
+#tela-login{
+	min-width: 200px;
+	max-width: 450px;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	min-height: 200px;
+}
+
+.btn{
+    font-size: 10px;
+}
+
+.card-header div h5{
+    font-size: 14px;
+}
+
+nav div h2{
+    font-size: 16px;
+}
+}

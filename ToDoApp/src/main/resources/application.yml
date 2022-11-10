@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/todoapp
+    username: postgres
+    password: vs368797
+  database:
+    driverClassName: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: POSTGRESQL
+

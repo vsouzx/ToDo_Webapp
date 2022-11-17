@@ -38,11 +38,6 @@ public class AppController {
 		this.restTemplate = restTemplate;
 	}
 
-	@PostMapping(value = "/login")
-	public String login(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		return "/user/login.html";
-	}
-
 	@GetMapping(value = "/home")
 	public String viewHomePage() {
 		return "/index";
@@ -52,5 +47,10 @@ public class AppController {
 	public String viewSignUpPage(Model model) {
 		model.addAttribute("user", new User());
 		return "/user/register.html";
+	}
+
+	@GetMapping(value = "/login")
+	public String viewLoginPage() {
+		return "/user/login.html";
 	}
 }

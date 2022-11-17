@@ -30,7 +30,7 @@
         <div class="text-center" id="tela-login">
             <div>
                 <h1>Login</h1>
-                <form>
+                <form th:action="@{/login}" method="POST">
 
                     <div class="form-floating mb-3">
                         <input name="email" type="email" class="form-control" placeholder="digite o seu username...">

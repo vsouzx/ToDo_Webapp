@@ -40,17 +40,17 @@ public class AppController {
 
 	@GetMapping(value = "/home")
 	public String viewHomePage() {
-		return "/index";
+		return "index";
 	}
 	
 	@GetMapping(value = "/register")
 	public String viewSignUpPage(Model model) {
 		model.addAttribute("user", new User());
-		return "/user/register.html";
+		return "user/register";
 	}
 
 	@GetMapping(value = "/login")
 	public String viewLoginPage() {
-		return "/user/login.html";
+		return "user/login";
 	}
 }

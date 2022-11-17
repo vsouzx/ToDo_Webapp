@@ -45,13 +45,13 @@ public class TaskService {
             model.addAttribute("username", nomeUsuario);
             model.addAttribute("tasks", tasks);
             model.addAttribute("url", status);
-            return "/tasks/emptyTask";
+            return "tasks/emptyTask";
         }
 
         model.addAttribute("username", nomeUsuario);
         model.addAttribute("tasks", tasks);
         model.addAttribute("url", status);
-        return "/tasks/home";
+        return "tasks/home";
     }
 
     public String novaTaskTela(Model model, Authentication auth){
@@ -60,7 +60,7 @@ public class TaskService {
 
         model.addAttribute("task", new Task());
         model.addAttribute("username", nomeUsuario);
-        return "/tasks/new";
+        return "tasks/new";
     }
 
     public String processandoNovaTask(Task task, Authentication auth){
@@ -74,7 +74,7 @@ public class TaskService {
 
         taskRepository.save(task);
 
-        return "/tasks/register_success";
+        return "tasks/register_success";
     }
 
     public String editarTaskTela(Model model, Authentication auth, Long id){
@@ -85,7 +85,7 @@ public class TaskService {
 
         model.addAttribute("task", task.get());
         model.addAttribute("username", nomeUsuario);
-        return "/tasks/edit";
+        return "tasks/edit";
     }
 
     public String processandoTaskEditada(Task task, Authentication auth){

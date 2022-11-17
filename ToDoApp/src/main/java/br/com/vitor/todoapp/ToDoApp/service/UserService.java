@@ -39,7 +39,7 @@ public class UserService {
         user.setEnabled(true);
         userRepository.save(user);
 
-        return "/user/register_success.html";
+        return "user/register_success";
     }
 
     public String viewUsersList(Model model, Authentication auth){
@@ -49,7 +49,7 @@ public class UserService {
         List<User> usersList = userRepository.findAll();
         model.addAttribute("usersList", usersList);
         model.addAttribute("username", nomeUsuario);
-        return "/user/usersList";
+        return "user/usersList";
     }
 
     public String deleteUser(User user){

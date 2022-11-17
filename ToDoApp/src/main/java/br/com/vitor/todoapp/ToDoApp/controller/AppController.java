@@ -40,12 +40,6 @@ public class AppController {
 
 	@PostMapping(value = "/login")
 	public String login(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
-
-		if(!verifyRecaptcha(gRecaptchaResponse)){
-			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-		}
-		verifyRecaptcha(gRecaptchaResponse);
 		return "/user/login.html";
 	}
 
@@ -58,28 +52,5 @@ public class AppController {
 	public String viewSignUpPage(Model model) {
 		model.addAttribute("user", new User());
 		return "/user/register.html";
-	}
-	
-	@GetMapping(value = "/login")
-	public String viewLoginPage() {
-		return "/user/login.html";
-	}
-
-	private boolean verifyRecaptcha(String gRecaptchaResponse) {
-		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
-		map.add("secret", recaptchaSecret);
-		map.add("response", gRecaptchaResponse);
-
-		HttpEntity<MultiValueMap<String, String>> request =  new HttpEntity<>(map);
-
-		RecaptchaResponse response = restTemplate.postForObject(recaptchaUrl, request, RecaptchaResponse.class);
-
-		if(response.getErrorCodes() != null){
-			for(String error : response.getErrorCodes()){
-				System.out.println("\t" + error);
-			}
-		}
-		System.out.println(response);
-		return response.isSuccess();
 	}
 }
